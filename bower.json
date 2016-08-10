@@ -1,0 +1,21 @@
+{
+  "name": "city_react",
+  "homepage": "https://github.com/dhilipanraja-joseph/AssignmentOne",
+  "authors": [
+    "dhilipanraja-joseph <dlipnraj@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.3.0",
+    "node-uuid": "^1.4.7"
+  }
+}
