@@ -11,28 +11,22 @@ const StoredData = React.createClass({
       //seletedCity : ''
     }
   },
+  // componentWillUpdate(){
+  //   console.log('componentWillUpdate');
+  // },
+  componentDidUpdate(){
+    // console.log("componentDidUpdate");
+      localStorage.cities = JSON.stringify(this.state.cities);
+  },
   addData : function(dataObj) {
-      console.log(dataObj);
-      console.log("cities",this.state.cities);
-      this.setState({
-        cities : this.state.cities.concat(dataObj)
-      },
-        ()=>{
-
-          console.log("cities",this.state.cities);
-          localStorage.cities = JSON.stringify(this.state.cities);
-        }
-      );
+      // console.log(dataObj);
+      // console.log("cities",this.state.cities);
+      this.setState({cities : this.state.cities.concat(dataObj)});
     //  this.setState({selectedCity : dataObj});
   },
   deleteCity : function(id){
     this.setState({
-      cities : this.state.cities.filter(city => city.id !== id)
-    },
-      ()=>{
-        localStorage.cities = JSON.stringify(this.state.cities);
-      }
-    );
+      cities : this.state.cities.filter(city => city.id !== id)});
   },
   modifyCity : function(id){
     let i = this.state.cities.findIndex(x => x.id ===id);
@@ -42,13 +36,7 @@ const StoredData = React.createClass({
     let population = prompt("Change Population",mcity[i].population);
     //let cityObj = {city,state,population};
     mcity[i] = {id:uuid(),city,state,population};
-    this.setState({
-      cities : mcity
-    },
-      ()=>{
-        localStorage.cities = JSON.stringify(this.state.cities);
-      }
-    );
+    this.setState({cities : mcity});
   },
   render: function () {
     return (
@@ -61,6 +49,7 @@ const StoredData = React.createClass({
     );
   }
 });
+
 
 const CityTable = React.createClass({
   delete : function(e){
@@ -105,6 +94,8 @@ const CityTable = React.createClass({
     );
   }
 });
+
+
 
 const AddForm = React.createClass({
   getInitialState : function(){
